@@ -115,29 +115,76 @@ html, body {
     width: 100%;
 }
 
-/* Hamburger Menu */
+/* Hamburger Menu - Fixed */
 .navbar-toggler {
     border: 2px solid var(--primary-blue);
     padding: 8px 12px;
     transition: all 0.3s ease;
     margin-left: auto;
     flex-shrink: 0;
+    background: transparent !important;
+    position: relative;
+    z-index: 1001;
 }
 
 .navbar-toggler:hover {
-    background: var(--primary-blue);
+    background: var(--primary-blue) !important;
     transform: rotate(90deg);
+}
+
+.navbar-toggler:focus {
+    background: transparent !important;
+    border-color: var(--primary-blue);
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.navbar-toggler:not(.collapsed) {
+    background: transparent !important;
+    border-color: var(--primary-blue);
+}
+
+.navbar-toggler:not(.collapsed):hover {
+    background: var(--primary-blue) !important;
 }
 
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 82, 204, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
 }
 
-/* Mobile Menu Collapse */
+/* Close icon when menu is open */
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 82, 204, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M7 7l16 16M23 7L7 23'/%3e%3c/svg%3e");
+}
+
+/* Fix for blue background issue */
+.navbar-toggler[aria-expanded="true"] {
+    background: transparent !important;
+}
+
+.navbar-toggler[aria-expanded="true"]:hover {
+    background: var(--primary-blue) !important;
+}
+
+/* Remove any conflicting Bootstrap styles */
+.navbar-toggler:active,
+.navbar-toggler:focus {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Mobile Menu Collapse - Fixed */
 .navbar-collapse {
     flex-basis: 100%;
     flex-grow: 1;
     align-items: center;
+}
+
+.navbar-collapse.collapsing {
+    overflow: hidden;
 }
 
 .navbar-nav {
