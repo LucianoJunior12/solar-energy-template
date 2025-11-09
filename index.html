@@ -105,7 +105,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            transition: all 0.3s ease;
+            
         }
 
         .navbar-brand:hover {
@@ -212,10 +212,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Close icon when menu is open */
-        .navbar-toggler:not(.collapsed) .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 102, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M7 7l16 16M23 7L7 23'/%3e%3c/svg%3e");
-        }
 
         /* Fix for blue background issue */
         .navbar-toggler[aria-expanded="true"] {
@@ -1688,15 +1684,7 @@
             }, 1000);
         });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+      
 
         // Smooth scrolling
         function scrollToSection(sectionId) {
